@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人主页</title>
+    <style type="text/css">
+        body {
+            background-color: beige;
+        }
+        h1{
+            font-family: "Arial Black";
+            color: blue;
+
+        }
+        h2{
+            font-family: 'SimSun';
+        }
+        p{
+            font-family: "FangSong";
+            font-size: '5px';
+        }
+        .xingzuo{
+            font-family: "Arial Black";
+            font-size: 17px;
+        }
+        .zhengwen{
+            font-family: "Arial Black";
+            font-size: 19px;
+            font-weight: bold;
+
+        }
+        .grid-container {
+            display: grid;
+            background-color: beige;
+            grid-template-columns: 240px 200px 250px 100px 250px;
+            grid-template-rows: 290px 80px 90px 120px 200px 120px;
+
+
+            grid-gap: 20px 20px;
+
+        }
+        .item1 {
+            background-color: rgba(255, 0, 0, 1);
+            border: 1px solid rgba(0, 0, 0, 0.8);
+
+            font-size: 20px;
+            text-align: center;
+
+            grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row-start: 1;
+            grid-row-end: 4;
+        }
+        .item2{
+            background-color:#f68f26;
+            font-size: 20px;
+            text-align: center;
+            grid-column-start: 3;
+            grid-column-end: 5;
+            grid-row-start: 1;
+            grid-row-end: 4;
+        }
+        .item3{
+            background-color: #4ba946;
+            font-size: 20px;
+            text-align: center;
+            grid-column-start: 5;
+            grid-column-end: 6;
+            grid-row-start: 1;
+            grid-row-end: 2;
+        }
+        .item4{
+            background-color: #0376c2;
+            font-size: 20px;
+            text-align: center;
+            grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row-start: 4;
+            grid-row-end: 7;
+
+        }
+
+        .item5{
+            background-color: #f8d29d;
+            font-size: 20px;
+            text-align: center;
+            grid-column-start: 5;
+            grid-column-end: 6;
+            grid-row-start: 2;
+            grid-row-end: 5;
+
+        }
+        .item6 {
+            background-color: #c077af;
+            font-size: 20px;
+            text-align: center;
+            grid-column-start: 3;
+            grid-column-end: 5;
+            grid-row-start: 4;
+            grid-row-end: 7;
+
+        }
+        .item7{
+            background-color: #29c0bb;
+            font-size: 20px;
+            text-align: center;
+            grid-column-start: 5;
+            grid-column-end: 6;
+            grid-row-start: 5;
+            grid-row-end: 7;
+        }
+        .grid-container1{
+            display: grid;
+            background-color: beige;
+            grid-template-columns: 500px 183px 503px ;
+            grid-template-rows: 550px 560px 120px 470px;
+            grid-gap: 17px 17px;
+        }
+        .item8{
+            background-color: #0376c2;
+            font-size: 20px;
+            text-align: center;
+            grid-column-start:1
+            grid-column-end: 2;
+            grid-row-start: 1;
+            grid-row-end: 2;
+        }
+        .item9{
+            background-color: #f8d29d;
+            font-size: 20px;
+            text-align: center;
+            grid-column-start: 2;
+            grid-column-end: 4;
+            grid-row-start: 1;
+            grid-row-end: 2;
+        }
+        .item10{
+            background-color:#f68f26;
+            font-size: 20px;
+            text-align: center;
+            grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row-start: 2;
+            grid-row-end: 3;
+        }
+        .item11{
+            background-color: rgba(255, 0, 0, 1);
+
+
+            font-size: 20px;
+            text-align: center;
+
+            grid-column-start: 3;
+            grid-column-end: 4;
+            grid-row-start: 2;
+            grid-row-end: 4;
+
+        }
+        .item12{
+            background-color: #29c0bb;
+            font-size: 20px;
+            text-align: center;
+            grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row-start: 3;
+            grid-row-end: 5;
+
+        }
+        .item13{
+            background-color: #c077af;
+            font-size: 20px;
+            text-align: center;
+            grid-column-start: 3;
+            grid-column-end: 4;
+            grid-row-start: 4; <!-- 可能修改 -->
+            grid-row-end: 5;
+
+        }
+        .grid-container2{
+            display: grid;
+            background-color: beige;
+            grid-template-columns: 315px 315px 315px ;
+            grid-template-rows: 315px 315px 315px;
+            grid-gap: 17px 17px;
+        }
+        .item14{
+            background-color:#f68f26;
+            font-size: 20px;
+            text-align: center;
+            grid-column-start: 1;
+            grid-column-end: 2;
+            grid-row-start: 1;
+            grid-row-end: 2;
+        }
+        .item15{
+            background-color: #29c0bb;
+            font-size: 20px;
+            text-align: center;
+            grid-column-start: 2;
+            grid-column-end: 3;
+            grid-row-start: 1;
+            grid-row-end: 2;
+        }
+        .item16{
+            background-color: #4ba946;
+            font-size: 20px;
+            text-align: center;
+            grid-column-start: 3;
+            grid-column-end: 4;
+            grid-row-start: 1;
+            grid-row-end: 2;
+        }
+        .item17{
+            background-color: #c077af;
+            font-size: 20px;
+            text-align: center;
+            grid-column-start: 1;
+            grid-column-end: 2;
+            grid-row-start: 2;
+            grid-row-end: 3;
+        }
+        .item18{
+            background-color: rgba(255, 0, 0, 1);
+
+
+            font-size: 20px;
+            text-align: center;
+
+            grid-column-start: 2;
+            grid-column-end: 3;
+            grid-row-start: 2;
+            grid-row-end: 3;
+        }
+        .item19{
+            background-color: #0376c2;
+            font-size: 20px;
+            text-align: center;
+            grid-column-start:3;
+            grid-column-end: 4;
+            grid-row-start: 2;
+            grid-row-end: 3;
+        }
+        .item20{
+            background-color: #abc2b7;
+            font-size: 20px;
+            text-align: center;
+            grid-column-start:1;
+            grid-column-end: 2;
+            grid-row-start: 3;
+            grid-row-end: 4;
+        }
+        .item21{
+            background-color: #a1c272;
+            font-size: 20px;
+            text-align: center;
+            grid-column-start:2;
+            grid-column-end: 3;
+            grid-row-start: 3;
+            grid-row-end: 4;
+        }
+        .item22{
+            background-color: #c2bd11;
+            font-size: 20px;
+            text-align: center;
+            grid-column-start:3;
+            grid-column-end: 4;
+            grid-row-start: 3;
+            grid-row-end: 4;
+        }
+        .grid-containerguitar{
+            display: grid;
+            background-color: beige;
+            grid-template-columns: 500px 500px;
+            grid-template-rows: 500px 520px;
+            grid-gap: 17px 17px;
+        }
+        .item23{
+            background-color: #0376c2;
+            font-size: 20px;
+            text-align: center;
+            grid-column-start:1;
+            grid-column-end: 2;
+            grid-row-start: 1;
+            grid-row-end: 2;
+        }
+
+        .item24{
+            background-color:#f68f26;
+            font-size: 20px;
+            text-align: center;
+            grid-column-start: 2;
+            grid-column-end: 3;
+            grid-row-start: 1;
+            grid-row-end: 2;
+        }
+
+        .item25{
+            background-color: #4ba946;
+            font-size: 20px;
+            text-align: center;
+            grid-column-start: 1;
+            grid-column-end: 2;
+            grid-row-start: 2;
+            grid-row-end: 3;
+        }
+
+        .item26{
+            background-color: rgba(255, 0, 0, 1);
+
+
+            font-size: 20px;
+            text-align: center;
+
+            grid-column-start: 2;
+            grid-column-end: 3;
+            grid-row-start: 2;
+            grid-row-end: 3;
+        }
+        .grid-containerrobot{
+            display: grid;
+            background-color: beige;
+            grid-template-columns: 500px 500px;
+            grid-template-rows: 500px 500px;
+            grid-gap: 17px 17px;
+        }
+
+    </style>
+</head>
+<body>
+<h1 align="center">杜笛箫的主页</h1>
+<hr>
+<ul>
+<li><h2> 个人20余年经历总结</h2>
+<p>在变丑的路上渐行渐远</p>
+
+<div class="grid-container">
+    <div class="item1">
+        <img src="img/2.png" />
+        <p>左右眼睛还一样大的时候</p>
+    </div>
+    <div class="item2">
+        <img src="img/3.png" />
+        <p>四岁生日</p>
+    </div>
+    <div class="item3">
+        <img src="img/5.png" />
+        <p>小学</p>
+    </div>
+    <div class="item4">
+        <img src="img/6.png" />
+        <p>小学，表情逐渐呆滞</p>
+    </div>
+    <div class="item6">
+        <img src="img/12.png" />
+        <p>初一</p>
+    </div>
+    <div class="item5">
+        <img src="img/7.jpg" />
+        最喜欢的宠物
+    </div>
+    <div class="item7">
+        <img src="img/16.png" />
+        <p>高一</p>
+    </div>
+</div>
+<br />
+<hr /> <!--分割线-->
+<p align="center" class="zhengwen">现在的我</p><br />
+<a href="#bottom">点击移动到页面底端查看现在的我</a>
+<br /><br />
+<a href="top"></a>
+</li>
+                                     <!--星座-->
+<li>
+<h2>星座</h2>
+
+<p class="xingzuo">
+<img src="img/xz.jpg" style="margin: 0px 0px 25px 42px;" align="left"/>  <br /><br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+    太阳星座狮子座，但感觉本人相似点并不多，因此不太相信星座
+    <br />
+    <br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+    有次抖音刷到月亮星座，就查了看看自己的月亮星座是天蝎座
+    <br />
+    <br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+    还是不相信月亮星座的描述，果然星座都是骗人的
+    <br />
+    <br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+    这一子标题只是为了丰富页面内容
+    <br />
+    <br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+    有时候会关注星座周运，能趋吉避凶吧
+    <br /><br />
+    <br /><br />
+
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;阳历生日：&nbsp;&nbsp;&nbsp; 八月七号
+
+    <br /><br />
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;农历生日：&nbsp;&nbsp;&nbsp; 七月初八
+
+</p>
+
+</li>
+
+<br />
+   <br /><br /><br /><br /><br />
+    <!--爱好-->
+    <li>
+        <h2>篮球和最好的兄弟</h2>
+        <p>因篮球相识，也因篮球结下了深厚的友谊</p>
+
+        <div class="grid-container1">
+            <div class="item8">
+                <img src="img/br1.png" />
+                雾霾红色预警的球场
+            </div>
+            <div class="item9">
+                <img src="img/bro2.jpg" />
+                年级春游也要带着篮球
+            </div>
+            <div class="item10">
+                <img src="img/bro4.jpg" />
+                19年春节联欢
+            </div>
+            <div class="item11">
+                <img src="img/bro3.jpg" />
+                 高二社会实践
+            </div>
+            <div class="item12">
+                <img src="img/bro5.jpg" />
+                社会实践
+            </div>
+            <div class="item13">
+                <img src="img/bro7.jpg" />
+            </div>
+
+        </div>
+    <br /><br />
+    </li>
+    <!--最喜欢的答案-->
+    <li>
+        <h2>最喜欢的是答案</h2>
+        <p>阿伦 艾佛森</p>
+        <div class="grid-container2">
+            <div class="item14">
+                <img src="img/i7.jpg" />
+            </div>
+            <div class="item15">
+                <img src="img/i3.jpg" />
+            </div>
+            <div class="item16">
+                <img src="img/i11.png" />
+            </div>
+            <div class="item17">
+                <img src="img/i10.jpg" />
+            </div>
+            <div class="item18">
+                <img src="img/i9.png" />
+            </div>
+            <div class="item19">
+                <img src="img/i1.jpg" />
+            </div>
+            <div class="item20">
+                <img src="img/i8.jpg" />
+            </div>
+            <div class="item21">
+                <img src="img/i6.jpg" />
+            </div>
+            <div class="item22">
+                <img src="img/i5.png" />
+            </div>
+            <br />
+            <br />
+            <h3><a href="https://nbachina.qq.com/a/20180810/043134.htm" target="_blank">观看艾佛森集锦视频</a></h3>
+        </div>
+<br /><br />
+
+    </li>
+    <li>
+       <h2>兴趣爱好</h2>
+        <p>学过一点吉他，喜欢指弹</p>
+    <!--guitar-->
+    <div class="grid-containerguitar" >
+        <div class="item23">
+            <img src="img/tkzc.jpg" />
+            <p>现在唯一能完全弹下来的指弹</p>
+            天空之城
+        </div>
+        <div class="item24">
+            <img src="img/qyqx.jpg" />
+            <p>主题曲always with me学过一半，现已忘了</p>
+            千与千寻
+        </div>
+        <div class="item25">
+            <img src="img/hr.jpg" />
+            <p>宫崎骏电影中最喜欢的电影</p>
+            哈尔的移动城堡
+        </div>
+        <div class="item26">
+            <img src="img/qyc.jpg" />
+            <p>犬夜叉，穿越时空的思念yyds</p>
+            <p>30几岁面临失业卷不动了一定要学</p>
+            犬夜叉
+        </div>
+    </div>
+        <br /><br />
+        <audio controls="controls">
+            <source src="guitar.mp3" type="audio/mp3" />
+        </audio>
+        <p>天空之城指弹，录于2020年11.21</p>
+    </li>
+    <br />
+    <br />
+    <!--机器人 -->
+    <li>
+        <h2>机器人</h2>
+        <p>在这里遇到了很多有趣的灵魂，大学最有意义的一段生活了</p>
+        <p>这里有着当下所有的热爱</p>
+        <div class="grid-containerrobot">
+            <div class="item23">
+                <img src="img/r1.jpg" />
+                <p>郑州遇险后回来</p>
+            </div>
+            <div class="item24">
+                <img src="img/hz.jpg" />
+                <p>✩孙悟空</p>
+            </div>
+            <div class="item25">
+                <img src="img/r2.jpg" />
+                <p>孙悟空和红孩儿</p>
+            </div>
+            <div class="item26">
+                <img src="img/r3.jpg" />
+                <p>❤红孩儿</p>
+            </div>
+        </div>
+
+    </li>
+                      <!-- 页面底端的照片 -->
+    <li><h2>现在的我</h2>
+<a id="bottom"></a>
+<img align="center" src="img/21.png" title="现在的我" content="现在的我">
+<p>现在的我</p>
+<hr />
+<a href="#top">回到前面继续查看更有趣的内容</a>
+</li>
+</ul>
+</body>
+</html>
