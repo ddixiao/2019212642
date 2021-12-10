@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>单周课表</title>
+    <link rel="shortcut icon" href="./img/标题栏图片.ico">
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="oddWeek.css">
+</head>
+<body>
+<!--导航-->
+<div class="header wrapper">
+    <h1>
+        <a href="#">
+            <img src="./img/logo.jpg" alt="logo">
+        </a>
+        <span>我的课表</span>
+    </h1>
+    <!--导航-->
+    <div class="nav">
+        <ul>
+            <li><a href="index.html">本周课表</a></li>
+            <li><a href="oddWeek.html">只看单周</a></li>
+            <li><a href="evenWeek.html">只看双周</a></li>
+        </ul></div>
+
+    <!--搜索-->
+    <div class="search">
+        <input type="text" name="" id="sousuo" placeholder="请输入要查询的课程,例如Web程序设计">
+        <div class="choicebank">
+            <button id="buttonOne"><a href="javascript:;"></a></button>
+            <ul class="choiceul">
+                <li><span>web</span></li>
+                <li><span>编译原理</span></li>
+                <li><span>操作系统</span></li>
+                <li><span>windows</span></li>
+                <li><span>微机原理</span></li>
+                <li><span>人工智能</span></li>
+                <li><span>实验室</span></li>
+                <li><span>专业英语</span></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!--qq头像-->
+    <div class="user">
+        <img src="./img/头像.jpg" alt="">
+        <span>1208609809</span>
+    </div>
+
+    <!--选择栏-->
+
+
+</div>
+
+
+<!--单周课表-->
+<div class="tablebox wrapper">
+<!--    表名小盒子-->
+    <div class="tableH">单周</div>
+
+
+<!--    课表-->
+    <div class="classTable">
+        <table>
+            <tr>
+                <th class="td1"></th>
+                <th>一</th>
+                <th>二</th>
+                <th>三</th>
+                <th>四</th>
+                <th>五</th>
+            </tr>
+            <tr>
+                <td class="td">8:00</td>
+                <td class="Mon" id="11">Windows程序设计</td>
+                <td class="Tue" id="21">编译原理</td>
+                <td class="Wes" id="31">人工智能</td>
+                <td class="Thu" id="41">实验室值班</td>
+                <td class="Fri" id="51">操作系统</td>
+            </tr>
+            <tr>
+                <td class="td">10:00</td>
+                <td class="Mon" id="12">微机原理</td>
+                <td class="Tue" id="22">实验室值班</td>
+                <td class="Wes" id="32">操作系统</td>
+                <td class="Thu" id="42">习近平思想概论</td>
+                <td class="blank" id="52"></td>
+            </tr>
+            <tr>
+                <td class="td">14:00</td>
+                <td class="Mon" id="13">大学体育1</td>
+                <td class="blank" id="23"></td>
+                <td class="blank" id="33"></td>
+                <td class="Thu" id="43">Web程序设计</td>
+                <td class="blank" id="53"></td>
+            </tr>
+            <tr>
+                <td class="td">16:00</td>
+                <td class="Mon" id="14">专业英语</td>
+                <td class="Tue" id="24">世界三大宗教</td>
+                <td class="Wes" id="34">微机原理</td>
+                <td class="Thu" id="44">编译原理</td>
+                <td class="blank" id="54"></td>
+            </tr>
+            <tr>
+                <td class="td">18:00</td>
+                <td class="Mon" id="15">机器人技术与应用</td>
+                <td class="blank" id="25"></td>
+                <td class="blank" id="35"></td>
+                <td class="Thu" id="45">实验室开会</td>
+                <td class="Fri" id="55">实验室大扫除</td>
+            </tr>
+            <tr>
+                <td class="td">20:00</td>
+                <td class="Mon" id="16">实验室开会</td>
+                <td class="blank" id="26"></td>
+                <td class="blank" id="36"></td>
+                <td class="blank" id="46"></td>
+                <td class="blank" id="56"></td>
+            </tr>
+        </table>
+
+
+
+    </div>
+
+
+<!--    课表详细信息-->
+
+<!--    注释-->
+    <div class="node">
+        <div>
+            <div class="boxP"></div>
+                <div class="textP">不同课程</div>
+            <div class="boxB"></div>
+            <div class="textB">查询课程</div>
+            <div class="boxR"></div>
+            <div class="textR">当前课程</div>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+<!--底部标签-->
+<div id="bottom"></div>
+
+
+<!--搜索栏的点击，聚焦和取消聚焦-->
+<script>
+    console.log('666');
+    var button=document.querySelector('#buttonOne');
+    var souSuo=document.getElementById('sousuo');
+    var tds=document.querySelectorAll('td');
+    var as=button.children[0];
+    var text=souSuo.value;
+    var body =document.querySelector('body');
+
+    // 查询课程选中消失函数
+    function rightFun(){
+        var text=souSuo.value;
+        as.setAttribute('href','javascript:;');
+        for(var i=0;i<tds.length;i++){
+
+            if(text!='' &&tds[i].innerHTML == text){
+                tds[i].style.border='';
+            }
+        }
+
+        var web = document.getElementById('21');
+        var windows = document.getElementById('35');
+        web.style.border='5px solid purple';
+        windows.style.border='5px solid purple';
+    }
+    // 查询按钮点击
+    button.onclick=function (){
+        var flag=0;
+        as.setAttribute('href','javascript:;');
+        var text=souSuo.value;
+        if(text==''){
+            alert("请输入要查询的课程！");
+        }
+        for(var i=0;i<tds.length;i++){
+
+            if(text!='' &&tds[i].innerHTML == text){
+                as.setAttribute('href','#bottom');
+                tds[i].style.border='5px solid blue';
+                flag=1;
+            }
+        }
+
+        if(flag==0){
+            alert('找不到当前课程哦\n请看页面最下方课程具体名称\n（注意大小写哦）');
+        }
+
+        setTimeout("rightFun()","1600");
+
+    }
+
+
+    souSuo.onfocus=function (){
+        this.value='';
+        this.setAttribute("placeholder",'');
+    }
+
+    souSuo.onblur=function (){
+        // this.value='';
+        this.setAttribute('placeholder',"请输入要查询的课程，例如Web程序设计");
+
+        for(var i=0;i<tds.length;i++){
+            var text=souSuo.value;
+            if(tds[i].innerHTML == text){
+                tds[i].style.border='';
+            }
+        }
+
+    }
+
+</script>
+
+
+<!--菜单栏-->
+<script>
+
+    var choicebank = document.querySelector('.choicebank');
+    var choiceul = document.querySelector('.choiceul');
+    var search = document.getElementById('sousuo');
+
+    choicebank.onmouseover=function (){
+        choiceul.style.display = 'block';
+    }
+
+    choicebank.onmouseout = function (){
+        choiceul.style.display = 'none';
+    }
+    var lis = choiceul.children;
+    console.log(lis[0].children[0].innerHTML);
+    for(var i=0;i<lis.length;i++){
+        lis[i].onclick =function (){
+            if(this.children[0].innerHTML=='web'){
+                search.value = 'Web程序设计';
+            }
+            else if(this.children[0].innerHTML=='windows'){
+                search.value = 'Windows程序设计';
+
+            }
+            else if(this.children[0].innerHTML=='实验室'){
+                search.value = '实验室值班';
+            }
+            else {
+                search.value = this.children[0].innerHTML;
+            }
+        }
+    }
+
+</script>
+
+<!--        选中当前上课的课程-->
+<!-- <script>
+            var nowDate= new Date();
+            // var dayList=['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];
+            var weekDay=nowDate.getDay();
+            var H=nowDate.getHours();
+            var M=nowDate.getMinutes();
+            var index = '';
+            if(H>=8 && H<10){
+                index = weekDay+'1';
+            }
+            else if(H>=10&& H<12){
+                index = weekDay+'2';
+            }
+            else if(H>=14&& H<16){
+                index = weekDay+'3';
+            }
+            else if(H>=16&& H<18){
+                index = weekDay+'4';
+            }
+            else if(H>=18&& H<20){
+                index = weekDay+'5';
+            }
+            else if(H>=20&& H<22){
+                index = weekDay+'6';
+            }
+            console.log(index);
+            var border = document.getElementById(index);
+            border.style.border='3px solid red';
+        </script>-->
+<!--        单双周不同课程样式框-->
+<script>
+    var compile = document.getElementById('21');
+    var weiJi = document.getElementById('34');
+    weiJi.style.border='5px solid purple';
+    compile.style.border='5px solid purple';
+
+</script>
+
+
+<!--搜索栏的点击，聚焦和取消聚焦-->
+<script>
+    console.log('666');
+    var button=document.querySelector('#buttonOne');
+    var souSuo=document.getElementById('sousuo');
+    var tds=document.querySelectorAll('td');
+    var as=button.children[0];
+    var text=souSuo.value;
+    var body =document.querySelector('body');
+
+    // 查询课程选中消失函数
+    function rightFun(){
+        var text=souSuo.value;
+        as.setAttribute('href','javascript:;');
+        for(var i=0;i<tds.length;i++){
+
+            if(text!='' &&tds[i].innerHTML == text){
+                tds[i].style.border='';
+            }
+        }
+
+        var web = document.getElementById('21');
+        var windows = document.getElementById('34');
+        web.style.border='5px solid purple';
+        windows.style.border='5px solid purple';
+    }
+    // 查询按钮点击
+    button.onclick=function (){
+        var flag=0;
+        as.setAttribute('href','javascript:;');
+        var text=souSuo.value;
+        if(text==''){
+            alert("请输入要查询的课程！");
+        }
+        for(var i=0;i<tds.length;i++){
+
+            if(text!='' &&tds[i].innerHTML == text){
+                as.setAttribute('href','#bottom');
+                tds[i].style.border='5px solid blue';
+                flag=1;
+            }
+        }
+
+        if(flag==0){
+            alert('找不到当前课程哦\n请看页面最下方课程具体名称\n（注意大小写哦）');
+        }
+
+        setTimeout("rightFun()","1600");
+
+    }
+
+
+    souSuo.onfocus=function (){
+        this.value='';
+        this.setAttribute("placeholder",'');
+    }
+
+    souSuo.onblur=function (){
+        // this.value='';
+        this.setAttribute('placeholder',"请输入要查询的课程，例如Web程序设计");
+
+        for(var i=0;i<tds.length;i++){
+            var text=souSuo.value;
+            if(tds[i].innerHTML == text){
+                tds[i].style.border='';
+            }
+        }
+
+    }
+
+</script>
+
+
+
+<!--        悬浮显示详细信息-->
+<script>
+    var lis = ['编译原理','Web程序设计','习近平思想概论','Windows程序设计','人工智能','操作系统','微机原理','机器人技术与应用','世界三大宗教','专业英语','大学体育1','实验室值班','实验室大扫除','实验室开会'];
+    var teacherlis = ['杨青','涂新辉','张艳斌','赵卫中','张连发','喻莹','金汉均','彭熙','娄宇','赵卫中','鄢润国',' ',' ',''];
+    var rooms = ['N108','N108','N215','N217','N112','N213','N113','N520','N215','N113','乒羽中心','N403','N403','N403'];
+    var listT = [];
+    var dataSets = {
+        classN:'编译原理',
+        teacher:'',
+        room:'N108'
+    }
+    for(var i =0;i < lis.length;i++){
+        var data1 = new Object();
+        data1.classN=lis[i];
+        data1.teacher = teacherlis[i];
+        data1.room = rooms[i];
+        /*console.log(data1);*/
+        listT.push(data1);
+    }
+    // console.log(listT.length);
+    // for(var i=0;i<listTi++)
+
+
+    var tds = document.querySelectorAll('td');
+    var box = document.querySelector('.tablebox');
+    for(var i=0;i<tds.length;i++){
+        for(var j=0;j<lis.length;j++) {
+            if(lis[j] == tds[i].innerHTML){
+                console.log(tds[i].innerText);
+
+                tds[i].onmouseover = function (){
+                    console.log('66666');
+                    var smallBox = document.createElement('div');
+                    box.appendChild(smallBox);
+                    smallBox.setAttribute("class","floatBox");
+
+                    var num = lis.indexOf(this.innerHTML);
+                    console.log(num);
+                    // console.log(teacherlis[num])
+                    smallBox.innerHTML = "课程名称："+lis[num]+'<br />'+'老师姓名：'+teacherlis[num]+ "<br />"+'教室位置：'+rooms[num];
+
+                }
+                tds[i].onmouseout =function (){
+                    smallBox = document.querySelector('.floatBox');
+                    box.removeChild(smallBox);
+
+                }
+            }
+        }
+    }
+
+
+
+</script>
+
+
+</body>
+</html>

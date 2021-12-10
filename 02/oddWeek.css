@@ -1,0 +1,175 @@
+.tablebox{
+    position: relative;
+    margin-top: 60px;
+    height: 650px;
+    /*width: 500px;*/
+    /*background-color: skyblue;*/
+}
+
+.tableH{
+    position: absolute;
+    top: 15px;
+    left: 290px;
+    font-family: 仿宋;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.classTable{
+    position: absolute;
+    top: 50px;
+    left: 73px;
+    height: 590px;
+    width: 500px;
+    /*background-color: green;*/
+
+}
+.classTable table{
+
+}
+.classTable table td{
+    float: left;
+    padding-top: 25px;
+    margin-bottom: 3px;
+    margin-right:3px;
+    width: 80px;
+    height: 90px;
+    /*border: 3px solid red;*/
+    /*background-color: gray;*/
+    font-family: 楷体;
+    text-align: center;
+
+    /*line-height: 90px;*/
+}
+
+.Mon{
+    background-color: #3ad599;
+}
+.Tue{
+    background-color: #fecf00;
+}
+.Wes{
+    background-color: #51b6fd;
+}
+.Thu{
+     background-color: #fd9233;
+ }
+.Fri{
+      background-color: #69cf80;
+  }
+
+.blank{
+    background-color: #f3f6f8;
+}
+
+th{
+    float: left;
+    width: 80px;
+    height: 20px;
+    text-align: center;
+}
+.td{
+
+    height: 90px;
+    width: 40px!important;
+    font-family: 仿宋;
+}
+.td1{
+    height: 20px;
+    width: 40px!important;
+}
+
+.node{
+    position: absolute;
+    top: 450px;
+    left: 1000px;
+    padding-top: 30px;
+    padding-left: 30px;
+    height: 200px;
+    width: 200px;
+    /*background-color: skyblue;*/
+}
+
+.node>div{
+
+    position: relative;
+    width: 170px;
+    height: 170px;
+    /*background-color: pink;*/
+}
+
+.boxR{
+    position: absolute;
+    top: 20px;
+    left: 50px;
+    width: 50px;
+    height: 30px;
+    border: 5px solid red;
+}
+.boxP{
+    position: absolute;
+    top: 60px;
+    left: 50px;
+    width: 50px;
+    height: 30px;
+    border: 5px solid purple;
+}
+.boxB{
+    position: absolute;
+    top: 100px;
+    left: 50px;
+    width: 50px;
+    height: 30px;
+    border: 5px solid blue;
+}
+.textR{
+    position: absolute;
+    top: 20px;
+    left: 110px;
+    height: 30px;
+    font-size: 14px;
+    text-align: center;
+    line-height: 30px;
+    font-family: 仿宋;
+    font-weight: 700;
+}
+
+.textP{
+    position: absolute;
+    top: 60px;
+    left: 110px;
+    height: 30px;
+    font-size: 14px;
+    text-align: center;
+    line-height: 30px;
+    font-family: 仿宋;
+    font-weight: 700;
+}
+
+.textB{
+    position: absolute;
+    top: 100px;
+    left: 110px;
+    height: 30px;
+    font-size: 14px;
+    text-align: center;
+    line-height: 30px;
+    font-family: 仿宋;
+    font-weight: 700;
+}
+
+.floatBox{
+    position: absolute;
+    top:150px;
+    left: 720px;
+    padding-top: 90px;
+    width: 300px;
+    height: 300px;
+    background-color: skyblue;
+
+    text-align: center;
+    font-family: 仿宋;
+    font-size:  26px;
+
+    vertical-align: middle;
+}
