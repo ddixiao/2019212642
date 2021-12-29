@@ -1,0 +1,173 @@
+.center{
+    position: relative;
+    margin-top: 70px;
+
+    width: 700px;
+    height: 500px;
+    background-image:  linear-gradient(120deg,#3498db,#8e44ad,#3498db);
+
+}
+
+.startG{
+    position: absolute;
+    margin: auto;
+    top: 50px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    padding-top: 35px;
+    height: 100px;
+    width: 100px;
+    background-color: black;
+}
+
+.startG:hover{
+    cursor: pointer;
+}
+
+.score{
+
+}
+
+.block1{
+    position: absolute;
+    top: 112px;
+    left: 639px;
+    width: 65px;
+    height: 0px;
+    /*background-color: skyblue;*/
+    /*display: none;*/
+    /*background-image: url("../img/hit.jpg");*/
+    background-color: black;
+}
+.block2{
+    position: absolute;
+    top: 112px;
+    left: 704px;
+    width: 65px;
+    height: 0px;
+    /*background-color: skyblue;*/
+    /*display: none;*/
+    /*background-image: url("../img/hit.jpg");*/
+    background-color: black;
+}
+
+.newclass1{
+    background-image: url("../img/hit.jpg");
+}
+
+.newclass2{
+    background-image: url("../img/hit2.jpg");
+}
+
+.newclass3{
+    background-image: url("../img/hit3.jpg");
+}
+
+
+
+.block3{
+    position: absolute;
+    top: 112px;
+    left: 769px;
+    width: 65px;
+    height: 0px;
+    /*background-color: skyblue;*/
+    /*display: none;*/
+    /*background-image: url("../img/hit.jpg");*/
+    background-color: black;
+}
+
+.block4{
+    position: absolute;
+    top: 112px;
+    left: 834px;
+    width: 65px;
+    height: 0px;
+    /*background-color: skyblue;*/
+    /*display: none;*/
+    /*background-image: url("../img/hit.jpg");*/
+    background-color: black;
+}
+
+.gamebgc{
+
+    position: absolute;
+    margin: auto;
+    top: 0px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 260px;
+    height: 500px;
+
+    background-image: url("../img/game背景2.jpg");
+    
+}
+
+.gameOver{
+    position: absolute;
+    margin: auto;
+    top: 50px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    padding-top: 20px;
+    height: 100px;
+    width: 100px;
+    background-color: black;
+}
+
+/*实时获取的分数*/
+.getSc{
+
+}
+
+.newChild{
+    /*float: left;*/
+    width: 65px;
+    /*height: 100px;*/
+
+    /*background-image: url("../img/hit.jpg");*/
+}
+
+.newpush{
+    background-color: skyblue;
+}
+.restart{
+
+}
+.restart:hover{
+    cursor: pointer;
+}
+
+.music{
+    position: absolute;
+    margin: auto;
+    top: 50px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    /*display: none;*/
+    height: 50px;
+    width: 50px;
+
+    /*background-color: skyblue;*/
+}
+
+.Optip{
+    font-style: italic;
+    color: #9195a3;
+}
+
+.musicName{
+    font-style: normal;
+    color: black;
+    font-family:  NSimSun;
+}
+.Opclick{
+
+}
