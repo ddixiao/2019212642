@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>setKey</title>
+    <link rel="shortcut icon" href="./img/标题栏图片.ico">
+
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/setKey.css">
+    <link rel="stylesheet" href="css/插件.css">
+    <link rel="stylesheet" href="css/插件1.css">
+    <link rel="stylesheet" href="css/插件2.css">
+
+    <script src="js/jQuery.js"></script>
+</head>
+<body>
+<!--导航栏-->
+<div class="header wrapper">
+    <h1>
+        <a href="#">
+            <img src="./img/logo.jpg" alt="logo">
+        </a>
+        <span>钢琴块</span>
+    </h1>
+    <!--导航-->
+    <div class="nav">
+        <ul>
+            <li><a class="game" href="game.html">开始游戏</a></li>
+            <li><a href="settingKey.html" class="KEY">按键设置</a></li>
+            <li><a href="comment.html" class="comMent">评论区</a></li>
+        </ul>
+    </div>
+
+    <!--登录和注册-->
+    <div class="register">
+        <ul>
+            <li><a href="loginIn.html" class="loginShow">登录</a></li>
+            <li><a href="register.html">注册</a></li>
+        </ul>
+    </div>
+
+
+
+    <!--qq头像-->
+    <div class="user">
+        <img src="./img/头像.jpg" alt="">
+        <span>未登录</span>
+    </div>
+
+    <!--选择栏-->
+
+
+</div>
+
+
+
+<!--中心区域-->
+<div class="center wrapper">
+        <ul class="ul1">
+            <span class="ones"></span>
+            <span class="twos"></span>
+            <span class="threes"></span>
+            <span class="fours"></span>
+            <span class="fives"></span>
+            <span class="sixs"></span>
+            <span class="sevens"></span>
+            <span class="eights"></span>
+            <span class="nines"></span>
+            <span class="tens"></span>
+            <span class="elevens"></span>
+            <span class="twelve"></span>
+            <span class="thirteen"></span>
+            <span class="fourteen"></span>
+            <span class="fifteen"></span>
+            <span class="sixteen"></span>
+
+            <li><img class="img1" src="./img/keyboard/d.jpg" alt=""></li>
+            <li><img class="img2" src="./img/keyboard/f.jpg" alt=""></li>
+            <li><img class="img3" src="./img/keyboard/k.jpg" alt=""></li>
+            <li><img class="img4" src="./img/keyboard/l.jpg" alt=""></li>
+
+        </ul>
+        <ul class="ul2">
+            <li>
+                <button class="button1">更改按键</button>
+            </li>
+            <li>
+                <button class="button2">更改按键</button>
+            </li>
+            <li>
+                <button class="button3">更改按键</button>
+            </li>
+            <li>
+                <button class="button4">更改按键</button>
+            </li>
+
+        </ul>
+    
+</div>
+
+
+<!--回到主页-->
+<div class="goHome">
+    <a href="javascript:;"></a>
+</div>
+
+<div class="remend">
+    回到主页
+</div>
+
+<!--jquery插件-->
+<div class="container1">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="text-effect">
+                <span>修</span><span>改</span><span>方</span><span>法</span>
+                <br>
+                <span>单</span><span>击</span><span>按</span><span>钮</span><span>后</span>
+                <br>
+                <span>按</span><span>动</span><span>新</span><span>的</span><span>按</span><span>键</span><span>替</span><span>换</span>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+</script>
+
+<!---------------------------------J S ---------------------->
+<!--检查登录-->
+<script charset="utf-8">
+    $(function (){
+        /*var flag = JSON.parse(localStorage.getItem("flag"));
+        flag = parseInt(flag);*/
+        var url = location.href;
+        console.log(url);
+        // 用户没有登录则不能进入游戏 ，根据url带有的参数来判定
+        if(url.indexOf("text") == -1){
+            $(".game").prop("href","javascript:;").on("click",function (){
+                alert("抱歉，您还未登录哦！请先登录");
+            });
+
+            $(".comMent").prop("href","javascript:;").on("click",function (){
+                alert("抱歉，您还未登录哦！请先登录");
+            });
+
+            $(".KEY").prop("href","javascript:;").on("click",function (){
+                alert("抱歉，您还未登录哦！请先登录");
+            });
+
+        }
+        else{
+            // 用户登录了，则url有参数
+
+            var userName = url.split('=')[1].split("&")[0];
+            console.log((userName)); //得到用户名
+            var Password = url.split('=')[2];
+            console.log("pas"+Password)
+
+            // 设置评论区已登录
+            $(".comMent").prop("href","http://localhost:63342/03/comment.html?text="+userName+"&password="+Password);
+
+            $(".KEY").prop("href","http://localhost:63342/03/settingKey.html?text="+userName+"&password="+Password);
+            $(".game").prop("href","http://localhost:63342/03/game.html?text="+userName+"&password="+Password);
+            $(".user span").text(decodeURI(userName));
+            $(".register .loginShow").text("已登录").prop("href","javascript:;").css("color","black","font-style","italic");
+        }
+
+    })
+
+</script>
+
+
+<!--插件移动-->
+<script>
+    $(function (){
+        $(".container1").animate({
+            left:1300,
+            height:200,
+            width:200
+        }, 1400);
+    })
+</script>
+
+
+<!--修改按钮-->
+<script>
+    $(function (){
+        var flag = 0;
+
+
+        $(".button1").on("click",function (){
+            flag = 1;
+            $(document).keydown(function (event){
+                if( flag==1 && event.key >= "a" &&  event.key<="z"){
+                    pressK = JSON.parse(localStorage.getItem("pressKey"));
+                    pressK.col1 = event.key;
+                    localStorage.setItem("pressKey",JSON.stringify(pressK));
+                    $(".img1").prop("src","./img/keyboard/"+event.key+".jpg");
+                    event.preventDefault();
+                    alert("更换完成");
+                    flag = 0;
+                }
+                /*else{
+                    alert("no");
+                }*/
+
+            })
+
+
+
+            // flag1 = 1;
+        })
+
+        $(".button2").on("click",function (){
+
+
+            flag=2;
+            $(document).keydown(function (event){
+                if( flag == 2 &&event.key >= "a" &&  event.key<="z"){
+                    pressK = JSON.parse(localStorage.getItem("pressKey"));
+                    pressK.col1 = event.key;
+                    localStorage.setItem("pressKey",JSON.stringify(pressK));
+                    $(".img2").prop("src","./img/keyboard/"+event.key+".jpg");
+                    alert("更换完成");
+                    flag = 0;
+                }
+                /*else{
+                    alert("no");
+                }*/
+
+
+            })
+
+
+
+            // flag2 = 1;
+        })
+
+        $(".button3").on("click",function (){
+            flag = 3;
+            $(document).keydown(function (event){
+                if(flag==3 && event.key >= "a" &&  event.key<="z"){
+                    pressK = JSON.parse(localStorage.getItem("pressKey"));
+                    pressK.col1 = event.key;
+                    localStorage.setItem("pressKey",JSON.stringify(pressK));
+                    $(".img3").prop("src","./img/keyboard/"+event.key+".jpg");
+                    alert("更换完成");
+                    flag =0;
+                }
+                /*else{
+                    alert("no");
+                }*/
+            })
+
+
+
+
+            // flag3 =1;
+        })
+        $(".button4").on("click",function (){
+            flag = 4;
+            $(document).keydown(function (event){
+                if( flag==4&& event.key >= "a" &&  event.key<="z"){
+                    pressK = JSON.parse(localStorage.getItem("pressKey"));
+                    pressK.col1 = event.key;
+                    localStorage.setItem("pressKey",JSON.stringify(pressK));
+                    $(".img4").prop("src","./img/keyboard/"+event.key+".jpg");
+                    alert("更换完成");
+                    flag =0 ;
+                }
+                /*else{
+                    alert("no");
+                }*/
+            })
+
+            // flag4 = 1 ;
+        })
+
+    })
+</script>
+
+
+<!--更换当前按钮-->
+<script>
+    $(function(){
+        var pressK = JSON.parse(localStorage.getItem("pressKey"));
+        var col1 = pressK.col1;
+        var col2 = pressK.col2;
+        var col3 = pressK.col3;
+        var col4 = pressK.col4;
+        $(".img1").prop("src","./img/keyboard/"+col1+".jpg");
+        $(".img2").prop("src","./img/keyboard/"+col2+".jpg");
+        $(".img3").prop("src","./img/keyboard/"+col3+".jpg");
+        $(".img4").prop("src","./img/keyboard/"+col4+".jpg");
+
+    })
+</script>
+
+
+
+<!--回到主页-->
+<script>
+    $(function (){
+        $(".goHome").on("mouseover",function (){
+            var url = location.href;
+            if(url.indexOf("text") == -1){
+                $(".goHome a").prop("href","http://localhost:63342/03/index.html?");
+                $(".remend").stop().fadeIn();
+            }
+            else{
+                var userName = url.split('=')[1].split("&")[0];
+                console.log((userName)); //得到用户名
+                var Password = url.split('=')[2];
+                console.log("pas"+Password)
+                // console.log(url);
+                $(".goHome a").prop("href","http://localhost:63342/03/index.html?text="+userName+"&password="+Password);
+                $(".remend").stop().fadeIn();
+            }
+
+        })
+        $(".goHome").on("mouseout",function (){
+            $(".remend").stop().fadeOut();
+        })
+
+    })
+</script>
+
+
+
+
+<!--<script>
+    var pressKey = {
+        "col1":"d",
+        "col2":"f",
+        "col3":"k",
+        "col4":"l",
+    };
+
+    localStorage.setItem("pressKey",JSON.stringify(pressKey));
+</script>-->
+
+
+
+</body>
+</html>

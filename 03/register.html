@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <link rel="shortcut icon" href="./img/标题栏图片.ico">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/register.css">
+    <script src="js/jQuery.js"></script>
+</head>
+<body>
+    <div class="register" >
+        <form class="formR" method="get">
+            <div class="one">
+                <h1>注册</h1>
+
+            </div>
+            <div class="two">
+                <label for="">用户名&nbsp&nbsp&nbsp&nbsp&nbsp</label>
+                <input type="text" >
+                <span></span>
+            </div>
+            <div class="three">
+                <label for="">密码&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
+                <input type="password" >
+                <span></span>
+            </div>
+            <div class="four">
+                <label for="">邮箱&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
+                <input type="text" >
+                <span></span>
+            </div>
+            <div class="five">
+                <label for="">证件类型</label>
+                <select name="licence" id="">
+                    <option value="Chlicence" >身份证</option>
+                    <option value="video">其他</option>
+                </select>
+
+                <label class="fiveL" for="">证件号码</label>
+                <input type="text" >
+                <span></span>
+                <button>
+                    <a href="javascript:;">提交</a>
+                </button>
+            </div>
+
+        </form>
+
+
+    </div>
+
+
+<!-----------------------------JS------------------------------>
+    <script>
+    $(function (){
+        $("button").on("click",function (){
+            if($(".two input").val()!= '' &&$(".three input").val()!= ''&&$(".five input").val()!= '' &&$(".four input").val()!= ''){
+                console.log($(".two input").val());
+                console.log($(".three input").val());
+                var data={
+                    useName:$(".two input").val(),
+                    passWord:$(".three input").val()
+                }
+
+                var index = parseInt(localStorage.getItem("index"));
+
+               localStorage.setItem("User"+"-"+index,JSON.stringify(data));
+               index += 1;
+               localStorage.setItem("index",index);
+
+                alert('注册成功');
+                // window.event.returnValue=false;
+                $("form").prop("action","index.html");
+            }
+            else {
+                alert("请填写全部信息");
+            }
+        })
+    })
+    </script>
+
+</body>
+</html>

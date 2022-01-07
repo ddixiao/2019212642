@@ -1,0 +1,112 @@
+.comment{
+    position: relative;
+    margin-top: 70px;
+}
+h1{
+    font-family: Helvetica;
+}
+.comment .h1{
+    position: absolute;
+    top: -10px;
+    left: 120px;
+}
+
+.comment .h2{
+    position: absolute;
+    top: 170px;
+    left: 120px;
+}
+
+.commentGive{
+    position: absolute;
+    top: 50px;
+    left: 170px;
+
+    width: 850px;
+    height: 100px;
+    background-color: rgba(206, 204, 204,.2);
+
+    line-height: 100px;
+}
+
+.commentGive label{
+    margin-left: 47px;
+    width: 107px;
+    font-family: Helvetica;
+    font-size: 26px;
+    color: #41424d;
+    vertical-align: middle;
+
+}
+
+.commentGive input{
+    margin-left: 50px;
+    width: 400px;
+    height: 30px;
+    vertical-align: middle;
+    border: none;
+
+}
+.commentGive button{
+    height: 30px;
+    width: 40px;
+    margin-left: 50px;
+}
+
+.commentGive button:hover{
+
+    cursor:pointer;
+    background-image: linear-gradient(120deg,#0aa4e5,skyblue,gray);
+}
+
+.commentEd{
+    position: absolute;
+    top: 250px;
+    left: 170px;
+
+    width:850px;
+    height: 400px;
+    background-color: rgba(206, 204, 204,.2);
+}
+
+
+
+.liclass{
+
+    margin-left: 20px;
+    margin-top: 30px;
+
+    border-radius: 5px 0 0 5px;
+    height: 108px;
+    width: 800px;
+    background-color: #ffffff;
+
+    /*line-height: 36px;*/
+}
+
+.liclass span{
+    float: left;
+
+    border-radius: 5px 0 0 5px;
+    height: 36px;
+    width: 7px;
+    background-color: rgb(96,136,141);
+}
+
+.liclass p{
+    float: left;
+    display: inline-block;
+    margin-left: 20px;
+    height: 30px;
+
+    width: 107px;
+
+}
+
+.liclass div{
+float: left;
+    margin-left: 50px;
+    height: 72px;
+    width: 560px;
+    /*background-color: skyblue;*/
+}

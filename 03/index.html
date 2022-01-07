@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en" charset="utf-8">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+    <link rel="shortcut icon" href="./img/标题栏图片.ico">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/jQuery.js"></script>
+
+</head>
+<body>
+<!--导航栏-->
+    <div class="header wrapper">
+    <h1>
+        <a href="#">
+            <img src="./img/logo.jpg" alt="logo">
+        </a>
+        <span>钢琴块</span>
+    </h1>
+    <!--导航-->
+    <div class="nav">
+        <ul>
+            <li><a class="game" href="game.html">开始游戏</a></li>
+            <li><a href="settingKey.html" class="KEY">按键设置</a></li>
+            <li><a href="comment.html" class="comMent">评论区</a></li>
+        </ul>
+    </div>
+
+<!--登录和注册-->
+    <div class="register">
+        <ul>
+            <li><a href="loginIn.html" class="loginShow">登录</a></li>
+            <li><a href="register.html">注册</a></li>
+        </ul>    
+    </div>
+
+
+
+    <!--qq头像-->
+    <div class="user">
+        <img src="./img/头像.jpg" alt="">
+        <span>未登录</span>
+    </div>
+
+    <!--选择栏-->
+
+
+    </div>
+
+<!--<script>
+    localStorage.setItem("commentIndex",JSON.stringify(1));
+</script>-->
+
+
+
+<!--中心区域-->
+<div class="wrapper mainPage">
+    <!--大字 -->
+    <div class="bigWord">
+        ALLRIGHT
+        <!--小字-->
+        <div class="smallWord">
+            Have A Good Time
+        </div>
+    </div>
+
+    <!--右侧logo图片-->
+    <div class="img">
+
+    </div>
+    <!-- 小盒子1-->
+    <div class="box1">
+        <p id="box1">自动生成问候语好，杜笛箫</p>
+    </div>
+
+    <!--小盒子2-->
+    <div class="box2">
+        <div class="smallBox2">
+            <p id="date">
+                动态显示今天的日期
+            </p>
+            <p id="time">
+                动态显示时间
+            </p>
+        </div>
+    </div>
+    <!--小盒子3-->
+    <div class="box3">
+        <div class="smallBox2" id="smallBox3">
+            游戏玩法：<br />
+            第1234列对应按键dfkl <br />
+        </div>
+    </div>
+    <script>
+        $(function (){
+            col1 = JSON.parse(localStorage.getItem("pressKey")).col1;
+            col2 = JSON.parse(localStorage.getItem("pressKey")).col2;
+            col3 = JSON.parse(localStorage.getItem("pressKey")).col3;
+            col4 = JSON.parse(localStorage.getItem("pressKey")).col4;
+            var neText = "游戏玩法：<br />\n" +
+                "            第1234列对应按键"+col1+col2+col3+col4+"<br />";
+            $("#smallBox3").html(neText);
+
+            // localStorage.setItem("commentIndex",JSON.stringify(9));
+        })
+
+
+    </script>
+    <script>
+        //box1
+        function good(){
+            var nowDate= new Date();
+            var H=nowDate.getHours();
+            var weekN =weekNum();
+            var people = "游客";
+            var login;
+            var url = location.href;
+            if(url.indexOf("text") == -1){
+                people = "游客";
+                login = document.createElement("a");
+                login.innerHTML="请登录";
+                login.setAttribute("href","loginIn.html");
+                login.style.position = "absolute";
+                login.style.top = "160px";
+                login.style.left = "120px";
+                login.style.color = "black";
+                login.style.fontStyle= "italic";
+                var box1= document.querySelector(".box1");
+                box1.appendChild(login);
+            }
+            else{
+                people = decodeURI(url.split('=')[1].split("&")[0]);
+            }
+            if(H>=5 && H<9){
+                return "欢迎来到别踩白块"+'<br />'+'早上好，'+people;
+            }
+            else if (H>=9&&H<12){
+                return "欢迎来到别踩白块"+'<br />'+'上午好，'+people;
+            }
+            else if(H>=12&&H<14){
+                return "欢迎来到别踩白块"+'<br />'+'中午好，'+people;
+            }
+            else if(H>=14&&H<18){
+                return "欢迎来到别踩白块"+'<br />'+'下午好，'+people;
+            }
+            else return "欢迎来到别踩白块"+'<br />'+'晚上好，'+people;
+        }
+        var box1=document.querySelector('#box1');
+        box1.innerHTML=good();
+        // box2动态日期函数
+        function date(){
+            nowdate = new Date();
+            var year=nowdate.getFullYear();
+            var mon=nowdate.getMonth()+1;
+            var day=nowdate.getDate();
+            var dayList=['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];
+
+            var weekDay=nowdate.getDay();
+            return '今天是'+year+'年'+mon+ '月' + day +'号' +dayList[weekDay];
+        }
+
+        var dateVar=document.getElementById('date');
+        dateVar.innerHTML=date();
+        //box2动态时间函数
+        function time(){
+            var nowDate= new Date();
+            var H=nowDate.getHours();
+            var M=nowDate.getMinutes();
+            var S=nowDate.getSeconds();
+            return H+'时'+M+'分'+S+'秒';
+        }
+
+        var timeVar = document.getElementById('time');
+        timeVar.innerHTML=time();
+
+        // 获取单双周数
+        function weekNum(){
+            var date1 = new Date();
+            var date2 = new Date();
+            date1.setDate(30);
+            date1.setMonth(7);
+            date1.setHours(0);
+            date1.setMinutes(0);
+            date1.setSeconds(0);
+            var subDate = date2-date1;
+            var weeK = parseInt(subDate / 604800000) +1;
+            // console.log(diff);
+            console.log(weeK);
+            return weeK;
+        }
+        weekNum();
+        //box3
+
+
+
+    </script>
+
+    <script>
+        var data = {
+            "useName" : "江清污",
+            "passWord": "123456"
+        }
+
+        var data1 ={
+            "useName": "dudixiao",
+            "passWord":"123456"
+        }
+        localStorage.setItem("User-2",JSON.stringify(data));
+        localStorage.setItem("User-1",JSON.stringify(data1));
+    </script>
+</div>
+<!---------------------------------J S ---------------------->
+<script charset="utf-8">
+    $(function (){
+        /*var flag = JSON.parse(localStorage.getItem("flag"));
+        flag = parseInt(flag);*/
+        var url = location.href;
+        console.log(url);
+        // 用户没有登录则不能进入游戏 ，根据url带有的参数来判定
+        if(url.indexOf("text") == -1){
+           $(".game").prop("href","javascript:;").on("click",function (){
+               alert("抱歉，您还未登录哦！请先登录");
+           });
+
+            $(".comMent").prop("href","javascript:;").on("click",function (){
+                alert("抱歉，您还未登录哦！请先登录");
+            });
+
+            $(".KEY").prop("href","javascript:;").on("click",function (){
+                alert("抱歉，您还未登录哦！请先登录");
+            });
+
+        }
+        else{
+            // 用户登录了，则url有参数
+
+            var userName = url.split('=')[1].split("&")[0];
+            console.log((userName)); //得到用户名
+            var Password = url.split('=')[2];
+            console.log("pas"+Password)
+
+            // 设置评论区已登录
+            $(".comMent").prop("href","http://localhost:63342/03/comment.html?text="+userName+"&password="+Password);
+
+            $(".KEY").prop("href","http://localhost:63342/03/settingKey.html?text="+userName+"&password="+Password);
+            $(".game").prop("href","http://localhost:63342/03/game.html?text="+userName+"&password="+Password);
+            $(".user span").text(decodeURI(userName));
+            $(".register .loginShow").text("已登录").prop("href","javascript:;").css("color","black","font-style","italic");
+        }
+
+    })
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>comment</title>
+    <link rel="shortcut icon" href="./img/标题栏图片.ico">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/comment.css">
+    <script src="js/jQuery.js"></script>
+</head>
+<body>
+<!--导航栏-->
+<div class="header wrapper">
+    <h1>
+        <a href="#">
+            <img src="./img/logo.jpg" alt="logo">
+        </a>
+        <span>钢琴块</span>
+    </h1>
+    <!--导航-->
+    <div class="nav">
+        <ul>
+            <li><a class="game" href="game.html">开始游戏</a></li>
+            <li><a href="settingKey.html" class="KEY">按键设置</a></li>
+            <li><a href="comment.html" class="comMent">评论区</a></li>
+        </ul>
+    </div>
+
+    <!--登录和注册-->
+    <div class="register">
+        <ul>
+            <li><a href="loginIn.html" class="loginShow">登录</a></li>
+            <li><a href="register.html">注册</a></li>
+        </ul>
+    </div>
+
+
+
+    <!--qq头像-->
+    <div class="user">
+        <img src="./img/头像.jpg" alt="">
+        <span>未登录</span>
+    </div>
+
+    <!--选择栏-->
+
+
+</div>
+
+
+<!--评论区-->
+<div class="comment wrapper">
+    <h1 class="h1">
+        发表评论
+    </h1>
+    <div class="commentGive">
+        <label >comment</label>
+        <input type="text" placeholder="在这里输入评论哦">
+        <button>提交</button>
+
+    </div>
+
+    <h1 class="h2">
+        已有评论
+    </h1>
+
+    <div class="commentEd">
+        <ul>
+            <!--<li class="liclass">
+                <span>
+
+                </span>
+                <p>
+                    江清污
+                </p>
+                <div>
+                    中学时跟当时最好的朋友上课迟到老班罚我们表演跟她一起唱了这首歌后来因为一些事渐行渐远每次听这首总会想起她后来再见面，再不似从前。哈哈，那句话怎么说来着，年少不知曲中意，再听已是曲中人
+                </div>
+            </li>-->
+        </ul>
+
+    </div>
+</div>
+
+
+
+<!--回到主页-->
+<div class="goHome">
+    <a href="javascript:;"></a>
+</div>
+
+<div class="remend">
+    回到主页
+</div>
+
+
+
+
+<!---------------------------------J S ---------------------->
+<!--登录信息-->
+<script charset="utf-8">
+    $(function (){
+        /*var flag = JSON.parse(localStorage.getItem("flag"));
+        flag = parseInt(flag);*/
+        var url = location.href;
+        console.log(url);
+        // 用户没有登录则不能进入游戏 ，根据url带有的参数来判定
+        if(url.indexOf("text") == -1){
+            $(".game").prop("href","javascript:;").on("click",function (){
+                alert("抱歉，您还未登录哦！请先登录");
+            });
+
+            $(".comMent").prop("href","javascript:;").on("click",function (){
+                alert("抱歉，您还未登录哦！请先登录");
+            });
+
+            $(".KEY").prop("href","javascript:;").on("click",function (){
+                alert("抱歉，您还未登录哦！请先登录");
+            });
+
+        }
+        else{
+            // 用户登录了，则url有参数
+
+            var userName = url.split('=')[1].split("&")[0];
+            console.log((userName)); //得到用户名
+            var Password = url.split('=')[2];
+            console.log("pas"+Password)
+
+            // 设置评论区已登录
+            $(".comMent").prop("href","http://localhost:63342/03/comment.html?text="+userName+"&password="+Password);
+
+            $(".KEY").prop("href","http://localhost:63342/03/settingKey.html?text="+userName+"&password="+Password);
+            $(".game").prop("href","http://localhost:63342/03/game.html?text="+userName+"&password="+Password);
+            $(".user span").text(decodeURI(userName));
+            $(".register .loginShow").text("已登录").prop("href","javascript:;").css("color","black","font-style","italic");
+        }
+
+    })
+
+</script>
+
+
+<!--回到主页-->
+<script>
+    $(function (){
+        $(".goHome").on("mouseover",function (){
+            var url = location.href;
+            if(url.indexOf("text") == -1){
+                $(".goHome a").prop("href","http://localhost:63342/03/index.html?");
+                $(".remend").stop().fadeIn();
+            }
+            else{
+                var userName = url.split('=')[1].split("&")[0];
+                console.log((userName)); //得到用户名
+                var Password = url.split('=')[2];
+                console.log("pas"+Password)
+                // console.log(url);
+                $(".goHome a").prop("href","http://localhost:63342/03/index.html?text="+userName+"&password="+Password);
+                $(".remend").stop().fadeIn();
+            }
+
+        })
+        $(".goHome").on("mouseout",function (){
+            $(".remend").stop().fadeOut();
+        })
+
+    })
+</script>
+
+
+
+
+<!--用户评论-->
+<script>
+
+    $(function (){
+        $(".commentGive input").on("focus",function (){
+            $(this).prop("placeholder","");
+            // $(this).prop("border","none");
+        })
+        $(".commentGive input").on("blur",function (){
+            $(this).prop("placeholder","在这里输入评论哦");
+        })
+
+        // 存储评论
+        $(".commentGive button").on("click",function () {
+            var giveComment = $(".commentGive input").val();
+            var userName = $(".user span").text();
+
+          var index = JSON.parse(localStorage.getItem("commentIndex"));
+          index = parseInt(index);
+          // console.log(++index);
+          if(userName != "未登录"){
+              data = {
+                  "User":userName,
+                  "Comment":giveComment
+              }
+
+              localStorage.setItem("comment"+"-"+index,JSON.stringify(data));
+              console.log("okokok");
+              index++;
+              localStorage.setItem("commentIndex",JSON.stringify(index));
+          }
+            console.log(giveComment+"  66"+userName);
+            // 发表评论后清空内容
+            var inp = document.querySelector(".commentGive input");
+            inp.value="";
+            $(".commentEd ul").empty();
+
+            var itIndex = localStorage.getItem("commentIndex");
+            itIndex = parseInt(itIndex);
+
+            if(itIndex>3){
+                var px = (itIndex) * 150;
+                $(".commentEd").css("height",px+"px")
+            }
+
+            for(var i=0;i<itIndex;i++){
+                var usercomment = JSON.parse(localStorage.getItem("comment"+"-"+i));
+                var comment = usercomment.Comment;
+                var user = usercomment.User;
+                var len = parseInt(comment.length /35)+1;
+                var li =$("<li></li>");
+                li.addClass("liclass");
+
+                var hei = len * 36;
+                li.prop("height",hei+"px");
+
+                $(".commentEd ul").append(li);
+
+                var span = $("<span></span>");
+                span.addClass("liclass span");
+
+                li.append(span);
+
+                p = $("<p></p>").addClass("liclass p");
+                p.text(user);
+                li.append(p);
+                var div = $("<div></div>");
+                div.addClass("liclass div");
+                div.text(comment);
+                li.append(div);
+            }
+
+
+        })
+
+        // 调出评论到页面
+        var itIndex = localStorage.getItem("commentIndex");
+        itIndex = parseInt(itIndex);
+
+        if(itIndex>3){
+            var px = (itIndex) * 150;
+            $(".commentEd").css("height",px+"px")
+        }
+
+        for(var i=0;i<itIndex;i++){
+            var usercomment = JSON.parse(localStorage.getItem("comment"+"-"+i));
+            var comment = usercomment.Comment;
+            var user = usercomment.User;
+            var len = parseInt(comment.length /35)+1;
+            var li =$("<li></li>");
+            li.addClass("liclass");
+
+            var hei = len * 36;
+            li.prop("height",hei+"px");
+
+            $(".commentEd ul").append(li);
+
+            var span = $("<span></span>");
+            span.addClass("liclass span");
+
+            li.append(span);
+
+            p = $("<p></p>").addClass("liclass p");
+            p.text(user);
+            li.append(p);
+            var div = $("<div></div>");
+            div.addClass("liclass div");
+            div.text(comment);
+            li.append(div);
+        }
+
+
+    })
+</script>
+
+</body>
+</html>
